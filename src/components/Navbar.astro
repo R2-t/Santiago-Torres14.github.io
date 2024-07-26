@@ -1,0 +1,163 @@
+---
+
+type Props = {
+    name: string,
+    title: string
+}
+
+const { name, title } = Astro.props;
+---
+
+<header class="main-header">
+    <div class="title-position-div">
+        <h2>{name}</h2>
+        <h3>{title}</h3>
+    </div>
+    <nav class="main-nav">
+        <span class="close-btn">X</span>
+        <a>ABOUT ME</a>
+        <a>RESUME</a>
+        <a>PROJECTS</a>
+        <a>BLOG</a>
+        <a>CONTACT</a>
+    </nav>
+   <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+
+<script>
+  const hamburger = document.querySelector(".hamburger");
+  const mainNav = document.querySelector(".main-nav");
+  const closeBtn = document.querySelector(".close-btn");
+
+  hamburger?.addEventListener("click", () => {
+    mainNav?.classList.toggle("active");
+  });
+
+  closeBtn?.addEventListener("click", () => {
+    mainNav?.classList.remove("active");
+  });
+</script>
+
+
+<style>
+.main-header {
+  display: flex;
+  align-items: center;
+}
+
+.main-nav {
+  display: none;
+}
+
+.main-header {
+  justify-content: space-between;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  min-height: 6rem;
+}
+
+.title-position-div {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.title-position-div h2::before {
+  content: '';
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: var(--blue);
+  margin-right: 0.4rem;
+  align-self: center;
+}
+
+.title-position-div h2 h3 {
+  white-space: nowrap;
+}
+
+.title-position-div h3 {
+  font-weight: 100;
+}
+
+.main-nav a {
+  font-weight: 100;
+  font-size: 0.9em;
+}
+
+.hamburger {
+  display: none;
+}
+
+.close-btn {
+  display: none;
+}
+
+@media (max-width: 37.4rem) {
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+  }
+ 
+   .hamburger span {
+    height: 3px;
+    width: 25px;
+    background-color: var(--blue);
+    margin: 3px 0;
+  }
+
+  .title-position-div {
+    flex-direction: column;
+  }
+
+  .main-header {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+
+  .main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--beige);
+    align-items: center;
+    z-index: 1;
+    justify-content: flex-start;
+    row-gap: 3rem;
+    padding-top: 2rem;
+  }
+
+  .main-nav a {
+    font-weight: bold;
+  }
+
+  .main-nav.active {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-nav.active .close-btn {
+    display: block;
+    align-self: flex-end;
+    margin-right: 2rem;
+    font-size: 4vh;
+  }
+
+}
+
+@media (min-width: 37.5rem) {
+  .main-nav {
+    display: flex;
+    align-items: center;;
+    gap: 1.7rem
+  } 
+}
+
+</style>
