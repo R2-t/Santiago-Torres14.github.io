@@ -44,21 +44,16 @@ const { name, title } = Astro.props;
 
 
 <style>
+/* contains the navigation bar elements*/
 .main-header {
   display: flex;
   align-items: center;
-}
-
-.main-nav {
-  display: none;
-}
-
-.main-header {
   justify-content: space-between;
   padding-left: 3rem;
   padding-right: 3rem;
   min-height: 6rem;
 }
+
 
 .title-position-div {
   display: flex;
@@ -90,6 +85,18 @@ const { name, title } = Astro.props;
   font-size: 0.9em;
 }
 
+/* main-nav is hidden by default so when
+it's display in small devices it can have
+an animation.
+*/
+.main-nav {
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* hamburger and close-btn classes are
+only meant to be displayed in small screens
+*/
 .hamburger {
   display: none;
 }
@@ -98,6 +105,7 @@ const { name, title } = Astro.props;
   display: none;
 }
 
+/* Small screens */
 @media (max-width: 37.4rem) {
   .hamburger {
     display: flex;
@@ -121,17 +129,23 @@ const { name, title } = Astro.props;
   }
 
   .main-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     background-color: var(--beige);
     align-items: center;
     z-index: 1;
     justify-content: flex-start;
     row-gap: 3rem;
     padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    /* Makes the navbar fade from top animation*/
+    transform: translateY(-100%);
+    transition: visibility 0s 0.3s, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    /* Makes the nav item to take up the page*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .main-nav a {
@@ -139,8 +153,10 @@ const { name, title } = Astro.props;
   }
 
   .main-nav.active {
-    display: flex;
-    flex-direction: column;
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
   }
 
   .main-nav.active .close-btn {
@@ -155,8 +171,12 @@ const { name, title } = Astro.props;
 @media (min-width: 37.5rem) {
   .main-nav {
     display: flex;
-    align-items: center;;
-    gap: 1.7rem
+    align-items: center;
+    gap: 1.7rem;
+    visibility: visible;
+    opacity: 1;
+    width: auto;
+    height: auto;
   } 
 }
 
