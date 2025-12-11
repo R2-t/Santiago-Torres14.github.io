@@ -1,0 +1,26 @@
+---
+import SectionHeader from "@components/SectionHeader.astro";
+
+interface Props {
+  description: string;
+}
+
+const { description } = Astro.props;
+---
+
+<section class="flex w-full lg:w-2/3">
+  <div
+    class="bg-white w-full rounded-3xl shadow-2xl p-8 md:p-12 backdrop-blur-sm"
+  >
+    <div class="mb-12">
+      <SectionHeader title="About me" />
+      <p class="text-gray-600 text-base leading-relaxed">
+        {description}
+      </p>
+    </div>
+
+    <div class="mb-12">
+      <SectionHeader title="Experience" />
+    </div>
+  </div>
+</section>

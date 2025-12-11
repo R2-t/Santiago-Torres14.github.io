@@ -9,7 +9,7 @@ const { title, value } = Astro.props;
 
 <div class="flex items-center gap-4 group">
   <div
-    class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-gray-750 transition-colors"
+    class="w-10 h-10 bg-indigo-400/20 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-gray-750 transition-colors"
   >
     <slot />
   </div>
@@ -19,6 +19,6 @@ const { title, value } = Astro.props;
     >
       {title}
     </p>
-    <p class="text-white font-medium">{value}</p>
+    <p class="text-slate font-medium">{value}</p>
   </div>
 </div>
