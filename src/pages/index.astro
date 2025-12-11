@@ -1,5 +1,19 @@
 ---
 import NewLayout from "@layout/NewLayout.astro";
+import PresentationCard from "@components/PresentationCard.astro";
 ---
 
-<NewLayout title="index" />
+<NewLayout title="index">
+  <PresentationCard
+    name="Santiago Torres Aragon"
+    position="Entrepreneur - Software Engineer"
+    contactInformation={{
+      email: "contact@santiagotorres.me",
+      location: "Bogotá, Colombia",
+    }}
+    socialMedia={{
+      github: "https://github.com/R2-t",
+      linkedin: "https://www.linkedin.com/in/santiago-torres-621632216/",
+    }}
+  />
+</NewLayout>

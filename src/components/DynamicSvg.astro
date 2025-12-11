@@ -1,0 +1,28 @@
+---
+import GithubLogo from "@components/logos/GithubLogo.astro";
+import LinkedInLogo from "@components/logos/LinkedInLogo.astro";
+import Calendar from "@components/icons/Calendar.astro";
+import Location from "@components/icons/Location.astro";
+import Phone from "@components/icons/Phone.astro";
+import Email from "@components/icons/Email.astro";
+
+interface Props {
+  name: "calendar" | "email" | "location" | "phone" | "github" | "linkedin";
+  class?: string;
+}
+
+const { name, class: className = "" } = Astro.props;
+
+const svg = {
+  calendar: Calendar,
+  email: Email,
+  location: Location,
+  phone: Phone,
+  github: GithubLogo,
+  linkedin: LinkedInLogo,
+};
+
+const SvgComponent = svg[name];
+---
+
+<SvgComponent class={className} />
