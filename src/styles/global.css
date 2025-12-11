@@ -1,15 +1,17 @@
+@import "tailwindcss";
 
 :root {
-    --blue: #153448;
-    --beige: #DFD0B8;
-    --white: #ffffff;
-    --black: #000000;
+  --blue: #153448;
+  --beige: #dfd0b8;
+  --white: #ffffff;
+  --black: #000000;
 }
 
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial;
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
 }
 
 h1,

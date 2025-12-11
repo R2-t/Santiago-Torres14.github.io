@@ -6,19 +6,18 @@
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error no test specified\" && exit 1",
-    "lint": "yarn eslint --ext .js,.astro src",
-    "format": "yarn prettier . --write",
-    "style": "yarn run format . && yarn run lint .",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && tsc --noEmit && astro build",
     "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/check": "0.5.10",
-    "astro": "4.5.12",
+    "@astrojs/check": "0.9.6",
+    "@tailwindcss/vite": "^4.1.17",
+    "astro": "5.16.5",
     "astro-icon": "^0.8.2",
-    "rollup": "^4.13.2"
+    "rollup": "^4.13.2",
+    "tailwindcss": "^4.1.17"
   },
   "devDependencies": {
     "@types/node": "^20.12.2",

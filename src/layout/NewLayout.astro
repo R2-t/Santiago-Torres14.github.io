@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-import Navbar from "@components/Navbar.astro"
 
 interface Props {
   title: string;
@@ -21,15 +20,14 @@ const { title } = Astro.props;
   </head>
   <body>
     <main class="main-flex">
-      <Navbar name="Santiago Torres" title="Software engineer"/>
       <slot />
     </main>
   </body>
 </html>
 
 <style>
-.main-grid {
-  display: flex;
-  flex-direction: 
-}
+  .main-grid {
+    display: flex;
+    flex-direction:;
+  }
 </style>
