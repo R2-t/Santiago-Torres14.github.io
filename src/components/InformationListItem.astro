@@ -9,7 +9,7 @@ interface Props {
 const { title, subtitle, date, points } = Astro.props;
 ---
 
-<div class="flex flex-col bg-slate-50 w-full p-5 rounded-xl gap-1 mb-2">
+<div class="flex flex-col bg-slate-50 w-full p-3 lg:p-5 rounded-xl gap-1 mb-2">
   <h1 class="text-slate text-xl">
     {title}
   </h1>
@@ -19,7 +19,7 @@ const { title, subtitle, date, points } = Astro.props;
   <span class="text-indigo-400">
     {date}
   </span>
-  <ul>
+  <ul class="list-disc pl-3">
     {points.map((point) => <li class="text-gray-400 text-base">{point}</li>)}
   </ul>
 </div>

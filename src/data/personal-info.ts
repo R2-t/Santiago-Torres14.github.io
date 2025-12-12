@@ -53,18 +53,35 @@ export const experience = [
     title: "Senior Software Engineer",
     company: "Mercado libre",
     date: "October 2024 - November 2024",
-    points: [],
+    points: [
+      `Contributed to the development of large-scale big data pipelines to process and categorize transactional
+      sales data, enabling optimized advertising campaign performance across multiple social media platforms.
+      Built data transformation workflows that powered targeted ad strategies by extracting actionable
+      insights from business sales patterns and customer behavior.`,
+      `Designed and implemented event-driven systems to identify and engage customers based on real-time
+      spending behavior analysis on the Mercado Libre platform. Developed behavioral segmentation logic to
+      trigger personalized marketing events, improving customer targeting precision and campaign conversion rates.`,
+    ],
   },
   {
     title: "Software Engineer",
     company: "TechGenies",
     date: "July 2023 - October 2023",
-    points: [],
+    points: [
+      `Development of an e-commerce platform for clients who are looking to start their merchandise business;
+      the project is developed in typescript react for the admin portal, dart flutter for the mobile application
+      and python Django to manage the whole backend. The project architecture is a monolith.`,
+      `development of a payment assessment tool in order to optimize cost projection in clients
+      business. The web app is developed in Typescript React, and the backend is developed in Php Laravel`,
+    ],
   },
   {
     title: "Full stack developer",
     company: "Casurid",
     date: "June 2022 - August 2022",
-    points: [],
+    points: [
+      `Development of learning management systems (LMS) relying on nodeJS, VueJS and moodle. Migration and management
+      of premises servers and databases to AWS. Integration of new services for the company's evolution.`,
+    ],
   },
 ];
