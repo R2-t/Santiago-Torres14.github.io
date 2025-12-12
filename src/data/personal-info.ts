@@ -25,13 +25,29 @@ export const experience = [
     title: "Senior Software Engineer",
     company: "EPAM systems",
     date: "March 2025",
-    points: [""],
+    points: [
+      `Architecting and developing real-time data processing services using pub/sub architecture to ingest and
+      transform operational data from Cognite CDF platform for oil & gas operations. Building Python-based
+      microservices that process time-series data from oil wells and related infrastructure, generating
+      actionable insights delivered through interactive map visualizations and analytical dashboards.`,
+      `Implementing comprehensive observability infrastructure including distributed tracing and metrics
+      collection to ensure system reliability and performance monitoring at scale.`,
+      `Key Technologies: Python, Pub/Sub Architecture, Cognite CDF, Real-time Data Processing, OpenTelemetry (Traces & Metrics), Microservices, SQL databases`,
+    ],
   },
   {
     title: "Software Engineer",
     company: "Dynata",
     date: "November 2022 - September 2025",
-    points: [],
+    points: [
+      `Architected and developed high-throughput microservices infrastructure in Rust to orchestrate multi-source
+      data ingestion from S3 buckets, RabbitMQ queues, and AWS SNS/SQS for large-scale market research operations.
+      Built intelligent matching engine to align client profiles with targeted advertising campaigns and survey
+      requirements, processing millions of data points to optimize audience targeting and campaign effectiveness.`,
+      `Designed and implemented partner portal enabling real-time visibility into survey completion metrics, client analytics, and automated monthly reporting.`,
+      `Established comprehensive observability framework across distributed services to ensure system reliability and performance monitoring.`,
+      `Key Technologies: Rust, Python, TypeScript, AWS (DynamoDB, SNS, SQS, ECS, S3), PostgreSQL, RabbitMQ, Microservices Architecture, Distributed Tracing & Telemetry`,
+    ],
   },
   {
     title: "Senior Software Engineer",
