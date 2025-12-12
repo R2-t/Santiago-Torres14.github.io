@@ -1,10 +1,30 @@
 ---
-import MainLayout from "@layout/MainLayout.astro";
-import AboutMeSection from "@components/AboutMeSection.astro";
+import NewLayout from "@layout/NewLayout.astro";
+import PresentationCard from "@components/PresentationCard.astro";
+import InformationCard from "@components/InformationCard.astro";
+import {
+  description,
+  name,
+  position,
+  email,
+  github_url,
+  linkedin_url,
+  experience,
+} from "@data/personal-info";
 ---
 
-<MainLayout title="index">
-  <AboutMeSection />
-</MainLayout>
-
-<style></style>
+<NewLayout title="Santiago Torres">
+  <PresentationCard
+    name={name}
+    position={position}
+    contactInformation={{
+      email: email,
+      location: "Bogotá, Colombia",
+    }}
+    socialMedia={{
+      github: github_url,
+      linkedin: linkedin_url,
+    }}
+  />
+  <InformationCard description={description} experience={experience} />
+</NewLayout>

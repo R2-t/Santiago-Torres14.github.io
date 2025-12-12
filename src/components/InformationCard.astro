@@ -1,0 +1,39 @@
+---
+import SectionHeader from "@components/SectionHeader.astro";
+import InformationListItem from "@components/InformationListItem.astro";
+import { experience as Experience } from "@data/personal-info";
+
+interface Props {
+  description: string;
+  experience: typeof Experience;
+}
+
+const { description, experience } = Astro.props;
+---
+
+<section class="flex w-full lg:w-2/3 lg:p-8">
+  <div
+    class="bg-white w-full rounded-3xl shadow-2xl p-8 md:p-12 backdrop-blur-sm"
+  >
+    <div class="mb-12">
+      <SectionHeader title="About me" />
+      <p class="text-gray-600 text-base leading-relaxed">
+        {description}
+      </p>
+    </div>
+
+    <div class="mb-12">
+      <SectionHeader title="Experience" />
+      {
+        experience.map((item) => (
+          <InformationListItem
+            title={item.title}
+            subtitle={item.company}
+            date={item.date}
+            points={item.points}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
