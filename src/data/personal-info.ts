@@ -19,3 +19,36 @@ architecture using AWS, Docker, and Kubernetes, and both SQL and NoSQL database 
 Demonstrated ability to deliver high-impact solutions for data-intensive applications
 including survey platforms, ad campaign engines, and oil field monitoring systems.
 `;
+
+export const experience = [
+  {
+    title: "Senior Software Engineer",
+    company: "EPAM systems",
+    date: "March 2025",
+    points: [""],
+  },
+  {
+    title: "Software Engineer",
+    company: "Dynata",
+    date: "November 2022 - September 2025",
+    points: [],
+  },
+  {
+    title: "Senior Software Engineer",
+    company: "Mercado libre",
+    date: "October 2024 - November 2024",
+    points: [],
+  },
+  {
+    title: "Software Engineer",
+    company: "TechGenies",
+    date: "July 2023 - October 2023",
+    points: [],
+  },
+  {
+    title: "Full stack developer",
+    company: "Casurid",
+    date: "June 2022 - August 2022",
+    points: [],
+  },
+];
