@@ -15,7 +15,7 @@
     "@astrojs/check": "0.9.6",
     "@tailwindcss/vite": "^4.1.17",
     "astro": "5.16.5",
-    "astro-icon": "^0.8.2",
+    "astro-icon": "^1.1.5",
     "rollup": "^4.13.2",
     "tailwindcss": "^4.1.17"
   },
