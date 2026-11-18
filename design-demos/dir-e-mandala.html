@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>E · Information Mandala</title>
+<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&family=Noto+Sans+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#151412;--paper:#f7f5ef;--spot:#c0392b}
+  *{box-sizing:border-box}body{margin:0;font-family:Chivo,sans-serif;background:var(--paper);color:var(--ink)}
+  .page{width:1440px;height:900px;display:flex;overflow:hidden}
+  .side{width:360px;padding:40px 34px;border-right:2px solid var(--ink)}
+  h1{font-size:34px;font-weight:900;line-height:1;margin:0;text-transform:uppercase}
+  .role{margin-top:12px;font-size:14px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--spot)}
+  .side p{font-size:14.5px;line-height:1.6;margin-top:16px}
+  a.mail{display:inline-block;margin-top:20px;font-size:16px;font-weight:700;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--spot)}
+  .key{margin-top:28px;font-family:"Noto Sans Mono",monospace;font-size:11px;line-height:2.1;color:#57544d}
+  .key i{display:inline-block;width:26px;height:1px;background:var(--ink);vertical-align:middle;margin-right:8px;font-style:normal}
+  .mandala{flex:1;display:grid;place-items:center;position:relative}
+  svg{max-width:100%}
+  text{font-family:Chivo,sans-serif;fill:var(--ink)}
+  .mono{font-family:"Noto Sans Mono",monospace}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="side">
+    <h1>Santiago<br>Torres<br>Aragon</h1>
+    <div class="role">Senior Software Engineer<br>Entrepreneur</div>
+    <p>The diagram is the résumé: one centre — operational data in motion — and four rings of systems
+      I have built or run, read outward.</p>
+    <a class="mail" href="mailto:contact@santiagotorres.me">contact@santiagotorres.me</a>
+    <div class="key"><i></i>ring 1 — ingest<br><i></i>ring 2 — transform<br><i></i>ring 3 — serve<br><i></i>ring 4 — observe<br>Bogotá, Colombia · 2022—2025</div>
+  </div>
+  <div class="mandala">
+    <svg viewBox="0 0 900 900" width="820" height="820">
+      <defs></defs>
+      <g fill="none" stroke="#151412">
+        <circle cx="450" cy="450" r="80"/><circle cx="450" cy="450" r="160" stroke-dasharray="4 6"/>
+        <circle cx="450" cy="450" r="240"/><circle cx="450" cy="450" r="320" stroke-dasharray="2 8"/>
+        <circle cx="450" cy="450" r="392"/>
+      </g>
+      <g stroke="#c0392b" stroke-width="1.5"><path d="M450 450 L450 58"/><path d="M450 450 L842 450"/><path d="M450 450 L450 842"/><path d="M450 450 L58 450"/></g>
+      <text x="450" y="440" text-anchor="middle" font-size="19" font-weight="900" letter-spacing="2">OPERATIONAL</text>
+      <text x="450" y="466" text-anchor="middle" font-size="19" font-weight="900" letter-spacing="2">DATA IN MOTION</text>
+      <g font-size="13" font-weight="700">
+        <text x="450" y="300" text-anchor="middle">Cognite CDF</text>
+        <text x="600" y="450" text-anchor="middle" class="mono" font-size="12">S3 · SNS/SQS</text>
+        <text x="450" y="612" text-anchor="middle" class="mono" font-size="12">RabbitMQ</text>
+        <text x="300" y="450" text-anchor="middle" class="mono" font-size="12">PostgreSQL</text>
+      </g>
+      <g font-size="13">
+        <text x="450" y="150" text-anchor="middle" class="mono">time-series transform (Python)</text>
+        <text x="730" y="450" text-anchor="middle" class="mono" >profile ↔ campaign matching (Rust)</text>
+        <text x="450" y="742" text-anchor="middle" class="mono">behavioural segmentation</text>
+        <text x="175" y="450" text-anchor="middle" class="mono">LMS · e-commerce monolith</text>
+      </g>
+      <g font-size="12" fill="#57544d" class="mono">
+        <text x="450" y="80" text-anchor="middle">maps + dashboards</text>
+        <text x="812" y="450" text-anchor="end">partner portal metrics</text>
+        <text x="450" y="828" text-anchor="middle">OpenTelemetry traces &amp; metrics</text>
+        <text x="92" y="450">Docker · Kubernetes</text>
+      </g>
+      <g fill="#c0392b"><circle cx="450" cy="370" r="5"/><circle cx="530" cy="450" r="5"/><circle cx="450" cy="530" r="5"/><circle cx="370" cy="450" r="5"/></g>
+      <text x="450" y="884" text-anchor="middle" font-size="11" class="mono" fill="#57544d">WRITING: 0 POSTS · PROJECTS: NOTHING PUBLIC YET — BOTH RINGS STAY BLANK UNTIL FILLED</text>
+    </svg>
+  </div>
+</div>
+</body>
+</html>

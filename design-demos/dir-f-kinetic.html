@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>F · Kinetic Systems Grid</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#0e0e0e;--paper:#eeeeea;--acc:#ff3d00}
+  *{box-sizing:border-box}body{margin:0;font-family:"Work Sans",sans-serif;background:var(--paper);color:var(--ink)}
+  .page{width:1440px;height:900px;position:relative;overflow:hidden}
+  .grid{position:absolute;inset:0;background-image:linear-gradient(var(--ink) 1px,transparent 1px),linear-gradient(90deg,var(--ink) 1px,transparent 1px);background-size:120px 120px;opacity:.07}
+  .top{position:absolute;left:48px;right:48px;top:34px;display:flex;justify-content:space-between;font-family:"Roboto Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+  .big{position:absolute;left:48px;top:110px;width:1000px;font-family:Anton,sans-serif;font-size:118px;line-height:.86;text-transform:uppercase;letter-spacing:-.01em}
+  .big span{display:inline-block;color:var(--paper);-webkit-text-stroke:2px var(--ink)}
+  .big em{font-style:normal;color:var(--acc);-webkit-text-stroke:0}
+  .flow{position:absolute;left:48px;right:48px;top:520px;height:118px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);display:flex}
+  .stage{flex:1;border-right:1px solid var(--ink);padding:14px 16px;position:relative}
+  .stage:last-child{border-right:0}
+  .stage b{font-family:"Roboto Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6c6a64}
+  .stage p{margin:8px 0 0;font-size:14px;font-weight:600;line-height:1.3}
+  .packet{position:absolute;bottom:0;left:0;width:14px;height:14px;background:var(--acc);animation:mv 3.2s linear infinite}
+  @keyframes mv{0%{transform:translateX(0)}100%{transform:translateX(1336px)}}
+  .roles{position:absolute;left:48px;right:48px;top:680px;display:flex;gap:26px;font-size:13px}
+  .r{flex:1;border-left:3px solid var(--ink);padding-left:12px}
+  .r.now{border-left-color:var(--acc)}
+  .r h3{margin:0;font-size:15px;font-weight:600}
+  .r small{font-family:"Roboto Mono",monospace;font-size:10.5px;color:#6c6a64;letter-spacing:.08em}
+  .cta{position:absolute;right:48px;bottom:40px;background:var(--ink);color:var(--paper);text-decoration:none;
+    font-family:Anton,sans-serif;font-size:22px;text-transform:uppercase;padding:14px 26px;letter-spacing:.02em}
+  .cta:hover{background:var(--acc)}
+  .honest{position:absolute;left:48px;bottom:44px;font-family:"Roboto Mono",monospace;font-size:11px;color:#6c6a64;letter-spacing:.06em;line-height:1.9}
+</style>
+</head>
+<body>
+<div class="page"><div class="grid"></div>
+  <div class="top"><span>Santiago Torres Aragon — Bogotá</span><span>Senior Software Engineer / Entrepreneur</span></div>
+  <div class="big">I SHIP<br><span>REAL-TIME</span><br>DATA <em>SYSTEMS</em></div>
+  <div class="flow">
+    <div class="stage"><b>Ingest</b><p>S3 · SNS/SQS · RabbitMQ · Cognite CDF time series</p></div>
+    <div class="stage"><b>Transform</b><p>Python &amp; Rust services, event-driven segmentation</p></div>
+    <div class="stage"><b>Match</b><p>Millions of profiles against campaign targets</p></div>
+    <div class="stage"><b>Observe</b><p>OpenTelemetry traces and metrics on every hop</p></div>
+    <div class="packet"></div>
+  </div>
+  <div class="roles">
+    <div class="r now"><h3>EPAM Systems</h3><small>MAR 2025 → · ARCHITECT</small></div>
+    <div class="r"><h3>Dynata</h3><small>NOV 2022 — SEP 2025</small></div>
+    <div class="r"><h3>Mercado Libre</h3><small>OCT — NOV 2024</small></div>
+    <div class="r"><h3>TechGenies</h3><small>JUL — OCT 2023</small></div>
+    <div class="r"><h3>Casurid</h3><small>JUN — AUG 2022</small></div>
+  </div>
+  <div class="honest">WRITING: NOT PUBLISHED YET<br>PROJECTS: NOTHING PUBLIC YET</div>
+  <a class="cta" href="mailto:contact@santiagotorres.me">contact@santiagotorres.me</a>
+</div>
+</body>
+</html>
