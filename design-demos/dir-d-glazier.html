@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>D · Glazier Partition</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bar:#131313;--clear:#f4f4f2;--seed:#eae7df;--cobalt:#1b3fa0;--amber:#c8862a;--oxblood:#6d1f22}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Libre Franklin",sans-serif;background:var(--bar);color:#1a1a1a}
+  .page{width:1440px;height:900px;padding:34px;display:grid;gap:14px;
+    grid-template-columns:1.15fr 1fr 1fr 1.4fr;grid-template-rows:repeat(3,1fr)}
+  .pane{background:var(--clear);padding:20px 22px;position:relative;overflow:hidden}
+  .pane.seed{background:var(--seed)}
+  .pane.tall{grid-row:span 2}
+  .pane.wide{grid-column:span 2}
+  .k{font-family:"Spline Sans Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6a6a66}
+  .pane h1{font-size:40px;font-weight:300;line-height:1;margin:14px 0 0;letter-spacing:-.02em}
+  .pane p{font-size:14px;line-height:1.5;margin:10px 0 0;max-width:34ch}
+  .pane.cobalt{background:var(--cobalt);color:#fff}
+  .pane.cobalt .k{color:#c9d2ff}
+  .pane.amber{background:var(--amber);color:#1a1206}
+  .pane.oxblood{background:var(--oxblood);color:#ffeceb}
+  .role{font-size:17px;font-weight:500;margin-top:12px;line-height:1.25}
+  .when{font-family:"Spline Sans Mono",monospace;font-size:11px;color:#6a6a66;margin-top:4px}
+  a.mail{display:inline-block;margin-top:16px;font-size:15px;color:#fff;text-decoration:none;border-bottom:1px solid #fff}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="pane tall seed"><div class="k">Identity</div><h1>Santiago Torres Aragon</h1>
+    <p>Entrepreneur — Senior Software Engineer. Bogotá, Colombia.</p>
+    <p>Four years building distributed systems that move operational data for a living.</p></div>
+  <div class="pane cobalt wide"><div class="k">Contact — one pane lit</div>
+    <div class="role" style="font-size:22px">contact@santiagotorres.me</div>
+    <a class="mail" href="mailto:contact@santiagotorres.me">Write to me →</a></div>
+  <div class="pane"><div class="k">Now</div><div class="role">EPAM Systems</div><div class="when">Mar 2025 →</div>
+    <p>Real-time well-data services on Cognite CDF.</p></div>
+  <div class="pane"><div class="k">Before</div><div class="role">Dynata</div><div class="when">Nov 2022 — Sep 2025</div>
+    <p>Rust ingestion + matching engine for campaigns.</p></div>
+  <div class="pane seed"><div class="k">Stack</div><p style="font-family:'Spline Sans Mono',monospace;font-size:12.5px;line-height:1.8">Python · Rust · TypeScript<br>AWS · Docker · Kubernetes<br>PostgreSQL · DynamoDB · RabbitMQ<br>OpenTelemetry</p></div>
+  <div class="pane amber"><div class="k">Writing</div><div class="role">Not started</div><p>Zero posts. First note planned on pub/sub matching.</p></div>
+  <div class="pane oxblood"><div class="k">Projects</div><div class="role">Nothing public yet</div><p>This pane stays empty until there is something real.</p></div>
+  <div class="pane wide"><div class="k">Also</div><div class="role">Mercado Libre · TechGenies · Casurid</div>
+    <p>Ad-targeting pipelines, e-commerce monoliths, LMS migrations.</p></div>
+</div>
+</body>
+</html>

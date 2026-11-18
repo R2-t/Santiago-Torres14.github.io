@@ -1,30 +1,347 @@
 ---
 import NewLayout from "@layout/NewLayout.astro";
-import PresentationCard from "@components/PresentationCard.astro";
-import InformationCard from "@components/InformationCard.astro";
+import { getCollection } from "astro:content";
 import {
-  description,
   name,
   position,
   email,
   github_url,
   linkedin_url,
+  description,
   experience,
 } from "@data/personal-info";
+
+const location = "Bogotá, Colombia";
+const postCount = (await getCollection("writing")).length;
+
+// Derived so the measured block cannot drift when a role is added.
+const yearsOf = (date: string) => date.match(/\d{4}/g) ?? [];
+const allYears = experience.flatMap((job) => yearsOf(job.date)).sort();
+const careerSpan = `${allYears[0] ?? "—"} → ${allYears.at(-1) ?? "—"}`;
+
+// Tagged per employer; extend this map when a new company lands.
+const INDUSTRY: Record<string, string> = {
+  Veho: "logistics",
+  "EPAM systems": "energy",
+  Dynata: "research",
+  "Mercado libre": "commerce",
+  TechGenies: "commerce",
+  Casurid: "education",
+};
+const industries = [
+  ...new Set(experience.map((job) => INDUSTRY[job.company]).filter(Boolean)),
+];
 ---
 
-<NewLayout title="Santiago Torres">
-  <PresentationCard
-    name={name}
-    position={position}
-    contactInformation={{
-      email: email,
-      location: "Bogotá, Colombia",
-    }}
-    socialMedia={{
-      github: github_url,
-      linkedin: linkedin_url,
-    }}
-  />
-  <InformationCard description={description} experience={experience} />
+<NewLayout title="Santiago Torres Aragon">
+  <div class="elevation">
+    <!-- BAY 1 · identity and the one lit pane -->
+    <section class="pane pane--seeded id">
+      <h1 class="display">{name}</h1>
+      <p class="posline">{position}</p>
+      <img class="portrait" src="/images/IMG_PROFILE.JPG" alt={name} />
+      <p class="data loc">{location}</p>
+    </section>
+
+    <a class="pane pane--lit contact" href={`mailto:${email}`}>
+      <span class="mail">{email}</span>
+      <span class="reply data">
+        One pane does one job: this one starts a conversation.
+      </span>
+      <span class="cta">Write to me</span>
+    </a>
+
+    <!-- BAY 2 · what he does, as set text -->
+    <section class="pane summary">
+      <p class="pane-body">{description}</p>
+      <ul class="known data">
+        {[
+          "Route planning, clustering and launch orchestration for last-mile delivery (Veho)",
+          "Driver marketplace services behind the delivery side of that equation",
+          "Pub/sub ingestion for oil-well time series (Cognite CDF)",
+          "Rust matching engine over millions of client profiles",
+          "On-call: New Relic alerts via PagerDuty, incidents closed under pressure",
+        ].map((line) => (
+          <li>{line}</li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- BAY 3 · the stack, measured -->
+    <aside class="pane pane--frost stack">
+      <ul class="data stacklist">
+        {[
+          ["Languages", "TypeScript · Python · Rust"],
+          ["Cloud", "AWS (EKS, AppSync) · Docker · Kubernetes"],
+          ["APIs", "REST · gRPC · GraphQL · microservice contracts"],
+          ["Data", "PostgreSQL · SQS · DynamoDB · RabbitMQ"],
+          ["Reliability", "New Relic alerting · PagerDuty · OpenTelemetry"],
+          ["Frontend", "Astro · React · Vue · Flutter"],
+        ].map(([k, v]) => (
+          <li>
+            <b>{k}</b>
+            <span>{v}</span>
+          </li>
+        ))}
+      </ul>
+      <div class="data measured">
+        <div>
+          <b>{experience.length}</b>
+          <span>employers logged</span>
+        </div>
+        <div>
+          <b>{careerSpan}</b>
+          <span>span on the wall</span>
+        </div>
+        <div>
+          <b>{industries.length}</b>
+          <span>industries: {industries.join(", ")}</span>
+        </div>
+        <div>
+          <b>5</b>
+          <span>production languages &amp; runtimes</span>
+        </div>
+      </div>
+      <p class="data links">
+        <a href={github_url}>github.com/R2-t</a>
+        <a href={linkedin_url}>linkedin.com/in/santiago-torres</a>
+      </p>
+    </aside>
+
+    <!-- BAY 4 · the wall of work: one pane per role, sized by tenure -->
+    {experience.map((job, i) => (
+      <section
+        class:list={["pane", "role", i === 0 && "role-now"]}
+        style={`grid-column: span ${i === 0 ? 6 : 4};`}
+      >
+        <div class="rolehead">
+          <h2 class="display roletitle">{job.title}</h2>
+          <span class="data org">{job.company}</span>
+          <span class="data when">{job.date}</span>
+        </div>
+        <ul class="points pane-body">
+          {job.points.slice(0, i === 0 ? 2 : 1).map((point) => (
+            <li>{point.trim().replace(/\s+/g, " ")}</li>
+          ))}
+        </ul>
+      </section>
+    ))}
+
+    <!-- BAY 5 · absence drawn deliberately: two real panes, no invented content -->
+    <a class="pane pane--amber future" href="/blog">
+      <h2 class="display big">Writing</h2>
+      <p class="pane-body">Notes on systems I have actually run.</p>
+      <p class="data empty">
+        {postCount} posts published · next planned: how a pub/sub matching
+        engine decides
+      </p>
+      <span class="cta">Open the journal</span>
+    </a>
+
+    <section class="pane pane--oxblood future">
+      <h2 class="display big">Projects</h2>
+      <p class="pane-body">Things built outside client work.</p>
+      <p class="data empty">
+        Nothing public yet — this pane stays dark until a repo exists
+      </p>
+    </section>
+  </div>
 </NewLayout>
+
+<style>
+  .id {
+    grid-column: span 3;
+    gap: 14px;
+  }
+  @media (max-width: 1180px) {
+    .contact {
+      justify-content: flex-end;
+    }
+  }
+
+  /* narrow bays: the identity pane reads left-to-right instead of leaving dead glass */
+  @media (max-width: 860px) {
+    .id {
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .id .display,
+    .id .posline {
+      flex: 1 1 100%;
+    }
+    .portrait {
+      max-width: 120px;
+    }
+    .loc {
+      margin-top: 0;
+      flex: 1;
+    }
+  }
+  .id .display {
+    font-size: clamp(2.1rem, 3.1vw, 3.4rem);
+  }
+  .posline {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.35;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--cobalt);
+  }
+  .portrait {
+    width: 100%;
+    max-width: 220px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.08);
+    mix-blend-mode: multiply;
+  }
+  .loc {
+    margin-top: auto;
+  }
+
+  .contact {
+    grid-column: span 3;
+    justify-content: center;
+    gap: 16px;
+    text-decoration: none;
+  }
+  .mail {
+    font-family: "Archivo", sans-serif;
+    font-size: clamp(0.95rem, 1.35vw, 1.3rem);
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    overflow-wrap: break-word;
+  }
+  .reply {
+    opacity: 0.8;
+  }
+  .cta {
+    align-self: flex-start;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    border: 2px solid currentColor;
+    padding: 9px 14px;
+  }
+
+  .summary {
+    grid-column: span 6;
+    gap: 18px;
+  }
+  .known {
+    margin: 0;
+    padding: 16px 0 0;
+    border-top: 2px solid var(--bar);
+    list-style: none;
+    display: grid;
+    gap: 7px;
+  }
+  .known li::before {
+    content: "▪ ";
+    color: var(--cobalt);
+  }
+  .stack {
+    grid-column: span 6;
+    gap: 22px;
+  }
+  .measured {
+    margin: 0;
+    padding-top: 14px;
+    border-top: 2px solid var(--bar);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .measured div b {
+    display: block;
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    letter-spacing: 0.02em;
+  }
+  .measured div span {
+    color: var(--ink-soft);
+  }
+  .stacklist {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+  }
+  .stacklist li {
+    display: grid;
+    gap: 2px;
+  }
+  .stacklist b {
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .stacklist span {
+    color: var(--ink-soft);
+  }
+  .links {
+    margin-top: auto;
+    display: flex;
+    gap: 22px;
+  }
+  .links a {
+    color: var(--ink);
+  }
+
+  .role {
+    gap: 10px;
+  }
+  .role-now {
+    background-color: var(--glass-clear);
+    box-shadow: inset 0 0 70px rgba(27, 63, 160, 0.1);
+  }
+  .rolehead {
+    display: grid;
+    gap: 3px;
+  }
+  .roletitle {
+    font-size: clamp(1.35rem, 1.9vw, 2rem);
+  }
+  .org {
+    font-weight: 500;
+  }
+  .when {
+    color: var(--ink-soft);
+  }
+  .points {
+    margin: 6px 0 0;
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 8px;
+  }
+
+  .future {
+    grid-column: span 5;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .big {
+    font-size: clamp(2.1rem, 3.4vw, 3.6rem);
+  }
+  .empty {
+    margin-top: auto;
+    opacity: 0.82;
+  }
+
+  @media (max-width: 520px) {
+    .portrait {
+      max-width: 160px;
+    }
+  }
+</style>

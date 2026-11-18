@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>A · Emission-Line Rail</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#1b1c1e; --plate:#232527; --bone:#d9d6cd; --dim:#8d8a82;
+    --violet:#7b5cff; --indigo:#4f6bff; --cyan:#3aa7d8; --green:#4fb45c;
+    --sodium:#e8c33a; --orange:#e08a3c; --red:#d8483f;
+    --rail:calc(100% - 260px);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--charcoal);color:var(--bone);
+    font-family:"Barlow Semi Condensed",sans-serif;-webkit-font-smoothing:antialiased}
+  .page{width:1440px;height:900px;position:relative;overflow:hidden;
+    background:
+      repeating-linear-gradient(90deg,#1e1f21 0 3px,#1b1c1e 3px 6px),
+      linear-gradient(180deg,#1d1e20,#191a1c);}
+  /* the calibrated rail */
+  .rail{position:absolute;left:0;right:0;top:236px;height:1px;background:#55534d}
+  .rail::before,.rail::after{content:"";position:absolute;top:-6px;width:1px;height:13px;background:#55534d}
+  .rail::before{left:64px}.rail::after{right:64px}
+  header{position:absolute;left:64px;top:44px;right:64px;display:flex;justify-content:space-between;align-items:flex-end}
+  h1{margin:0;font-size:44px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;line-height:1}
+  .sub{font-size:15px;letter-spacing:.28em;color:var(--dim);text-transform:uppercase;margin-top:10px}
+  .nav{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.14em;color:var(--dim);display:flex;gap:22px}
+  .nav a{color:var(--dim);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:3px}
+  .nav a.on{color:var(--bone);border-bottom-color:var(--sodium)}
+  .meta{position:absolute;left:64px;top:120px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;color:#6f6c66}
+  /* spectral lines = roles, positioned on year axis */
+  .lines{position:absolute;left:64px;right:64px;top:236px;height:0}
+  .line{position:absolute;top:0;transform:translateY(-50%);width:1px}
+  .line i{display:block;position:absolute;top:-96px;width:1px;height:96px;background:currentColor;opacity:.85}
+  .line.live i{height:150px;top:-150px}
+  .line em{position:absolute;top:52px;font-style:normal;font-family:"JetBrains Mono",monospace;
+    font-size:11.5px;letter-spacing:.08em;color:#b3b0a8;white-space:nowrap}
+  .yr{position:absolute;top:20px;transform:translateX(-50%);font-family:"JetBrains Mono",monospace;font-size:11px;color:#6f6c66;letter-spacing:.1em}  /* open plate for the selected role */
+  .plate{position:absolute;left:64px;right:64px;top:404px;background:linear-gradient(180deg,#27292b,#202123);
+    border-top:2px solid var(--sodium);padding:26px 34px 30px}
+  .wavelengths{position:absolute;left:64px;right:64px;top:320px;display:flex;gap:26px;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.1em;color:#6f6c66}
+  .wavelengths b{display:inline-block;width:26px;height:1px;background:currentColor;vertical-align:middle;margin-right:7px}
+  .lines em{text-indent:0}
+  .plate .head{display:flex;justify-content:space-between;align-items:baseline;gap:30px}
+  .role{font-size:30px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+  .org{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--sodium);letter-spacing:.1em}
+  .span{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--dim)}
+  .body{margin:16px 0 0;font-size:16px;line-height:1.55;color:#c6c3bb;max-width:940px}
+  .tags{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
+  .tag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;color:#b9b6ae;
+    border:1px solid #45474a;padding:5px 9px}
+  .tag.pending{border-style:dashed;color:#8b8880}
+  /* contact = doubled sodium line, brightest thing on the page */
+  .contact{position:absolute;left:64px;bottom:44px;display:flex;align-items:center;gap:18px}
+  .double{width:120px;height:7px;border-top:1px solid var(--sodium);border-bottom:1px solid var(--sodium)}
+  .mail{font-size:22px;letter-spacing:.14em;text-transform:uppercase;color:var(--sodium);text-decoration:none;font-weight:600}
+  .place{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--dim);letter-spacing:.1em}
+  .legend{position:absolute;right:64px;bottom:44px;text-align:right;font-family:"JetBrains Mono",monospace;font-size:10px;color:#6f6c66;letter-spacing:.12em;line-height:1.9}
+  .scale{position:absolute;left:64px;right:64px;top:262px;height:1px;background:#3a3b3d}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div>
+      <h1>Santiago Torres Aragon</h1>
+      <div class="sub">Senior Software Engineer — real-time data systems</div>
+    </div>
+    <nav class="nav">
+      <a class="on" href="#">SIGNAL</a><a href="#">LOG</a><a href="#">WRITING</a><a href="#">PROJECTS</a>
+    </nav>
+  </header>
+  <div class="meta">PLATE 01 / CAREER SPECTRUM &nbsp;·&nbsp; CALIBRATED 2022—2025 &nbsp;·&nbsp; BOGOTÁ, COLOMBIA</div>
+
+  <div class="rail"></div>
+
+  <div class="lines">
+    <span class="yr" style="left:0%;top:24px">2022</span>
+    <span class="yr" style="left:25%;top:24px">2023</span>
+    <span class="yr" style="left:50%;top:24px">2024</span>
+    <span class="yr" style="left:75%;top:24px">2025</span>
+    <span class="yr" style="right:0;top:24px">NOW</span>
+
+    <div class="line" style="left:2%;color:var(--red)"><i></i><em style="left:-6px">CASURID · JUN—AUG 2022</em></div>
+    <div class="line" style="left:14%;color:var(--orange)"><i></i><em style="left:34px">DYNATA · NOV 2022 →</em></div>
+    <div class="line" style="left:31%;color:var(--green)"><i></i><em>TECHGENIES · JUL–OCT 2023</em></div>
+    <div class="line" style="left:58%;color:var(--cyan)"><i></i><em>MERCADO LIBRE · OCT–NOV 2024</em></div>
+    <div class="line live" style="left:78%;color:var(--sodium)"><i></i><em>EPAM SYSTEMS · MAR 2025 →</em></div>
+  </div>
+
+  <div class="wavelengths">
+    <span style="color:var(--violet)"><b></b>405nm VIOLET</span>
+    <span style="color:var(--indigo)"><b></b>436 INDIGO</span>
+    <span style="color:var(--cyan)"><b></b>486 CYAN</span>
+    <span style="color:var(--green)"><b></b>546 GREEN</span>
+    <span style="color:var(--sodium)"><b></b>589 SODIUM · ACTIVE</span>
+    <span style="color:var(--orange)"><b></b>615 ORANGE</span>
+    <span style="color:var(--red)"><b></b>656 DEEP RED</span>
+  </div>
+
+  <section class="plate">
+    <div class="head">
+      <div>
+        <div class="role">Real-time data processing for oil &amp; gas operations</div>
+        <div class="org">EPAM SYSTEMS — ARCHITECT · MARCH 2025 →</div>
+      </div>
+      <div class="span">λ 589nm · ACTIVE</div>
+    </div>
+    <p class="body">Python microservices that ingest and transform operational time-series from the
+      Cognite CDF platform, generating actionable insights delivered through interactive map
+      visualizations and analytical dashboards. Distributed tracing and metrics keep the pipeline honest.</p>
+    <div class="tags">
+      <span class="tag">PYTHON</span><span class="tag">PUB/SUB</span><span class="tag">COGNITE CDF</span>
+      <span class="tag">OPENTELEMETRY</span><span class="tag">MICROSERVICES</span><span class="tag">SQL</span>
+      <span class="tag pending">WRITING: NOT PUBLISHED YET</span>
+    </div>
+  </section>
+
+  <div class="contact">
+    <span class="double"></span>
+    <a class="mail" href="mailto:contact@santiagotorres.me">contact@santiagotorres.me</a>
+    <span class="place">Bogotá, Colombia</span>
+  </div>
+  <div class="legend">LIVE ▪ DASHED PENDING ▪ HALF-HEIGHT STALE<br>ONE RAIL · SEVEN WAVELENGTHS · NO DECORATION</div>
+</div>
+</body>
+</html>

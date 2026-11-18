@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>B · Well-Log Section</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+ Narrow:wght@400;500;600;700&family=Cousine:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#f3efe6;--ink:#1c1a17;--rule:#b9b2a2;--grid:#dcd6c8;--red:#b4341f;--blue:#1f4b6e}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Archivo Narrow",Arial,sans-serif}
+  .page{width:1440px;height:900px;position:relative;overflow:hidden;border:1px solid var(--rule)}
+  /* header block = log sheet title */
+  .sheet{position:absolute;left:0;top:0;right:0;height:158px;border-bottom:2px solid var(--ink);
+    display:flex;padding:16px 26px 0;gap:26px}
+  .id{width:430px}
+  h1{margin:0;font-size:38px;line-height:.98;text-transform:uppercase;letter-spacing:.02em;font-weight:700}
+  .pos{margin-top:8px;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);font-weight:600}
+  .contact{margin-top:14px;font-family:Cousine,monospace;font-size:12px;letter-spacing:.02em;line-height:1.9}
+  .contact a{color:var(--red);text-decoration:none;font-weight:700;border-bottom:1.5px solid var(--red)}
+  .summary{flex:1;font-size:14.5px;line-height:1.5;border-left:1px solid var(--rule);padding-left:22px}
+  .summary b{font-weight:700}
+  .stamp{width:150px;border-left:1px solid var(--rule);padding-left:18px;font-family:Cousine,monospace;font-size:10.5px;line-height:1.7;color:#5d5850;letter-spacing:.03em}  /* three trace columns + depth rail */
+  .log{position:absolute;left:0;top:158px;right:0;bottom:64px;display:flex}
+  .depth{width:96px;border-right:2px solid var(--ink);background:
+      repeating-linear-gradient(180deg,transparent 0 45px,var(--grid) 45px 46px);
+    font-family:Cousine,monospace;font-size:11px;text-align:right;padding:0 8px;display:flex;
+    flex-direction:column;justify-content:space-between;position:relative}
+  .depth span{display:block;color:#6a6459;background:var(--paper);padding:1px 0}
+  .depth::after{content:"DEPTH · YEARS";position:absolute;left:-2px;top:50%;transform:rotate(-90deg) translateX(50%);
+    transform-origin:left top;font-size:10px;letter-spacing:.18em;color:var(--red);white-space:nowrap}
+  .col{border-right:1px solid var(--rule);padding:10px 14px 0;position:relative}
+  .col.interval{width:322px}
+  .col.trace{width:404px}
+  .col.evidence{flex:1;border-right:0}
+  .colhead{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6a6459;border-bottom:1px dashed var(--rule);padding-bottom:5px;margin-bottom:9px;font-weight:600}
+  .entry{margin:0 0 14px}
+  .entry .t{font-size:16.5px;font-weight:700;text-transform:uppercase;line-height:1.12}
+  .entry .o{font-size:13px;color:var(--blue);font-weight:600;letter-spacing:.03em}
+  .entry .d{font-family:Cousine,monospace;font-size:10.5px;color:#6a6459;margin-top:2px}
+  .bar{height:9px;margin:5px 0 2px;background:var(--ink);opacity:.86}
+  .bar.hollow{background:transparent;border:1px solid var(--ink);opacity:1}
+  .bar.red{background:var(--red)}
+  .wiggle{height:52px;margin:2px 0 12px;border-bottom:1px dotted var(--rule)}
+  .wiggle svg{display:block;width:100%;height:52px}
+  .note{font-size:13.5px;line-height:1.45;margin:0 0 10px}
+  .annote{font-family:Cousine,monospace;font-size:11px;color:var(--red);letter-spacing:.02em;margin:0 0 12px}
+  .stack{font-family:Cousine,monospace;font-size:11px;line-height:1.6;color:#3c3831}
+  /* footer: the honest future sections, as logged intervals yet to come */
+  footer{position:absolute;left:0;right:0;bottom:0;height:64px;border-top:2px solid var(--ink);
+    display:flex;align-items:center;gap:0;font-family:Cousine,monospace;font-size:11px;letter-spacing:.03em}
+  .fcell{padding:0 22px;border-right:1px solid var(--rule);height:100%;display:flex;flex-direction:column;justify-content:center}
+  .fcell b{font-size:12px;font-family:"Archivo Narrow",sans-serif;text-transform:uppercase;letter-spacing:.1em}
+  .open{margin-left:auto;padding-right:26px}
+  .open a{background:var(--red);color:#fff;text-decoration:none;padding:9px 16px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-family:"Archivo Narrow",sans-serif;font-weight:700}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="sheet">
+    <div class="id">
+      <h1>Santiago<br>Torres Aragon</h1>
+      <div class="pos">Entrepreneur — Senior Software Engineer</div>
+      <div class="contact">BOGOTÁ, COLOMBIA · <a href="mailto:contact@santiagotorres.me">contact@santiagotorres.me</a></div>
+    </div>
+    <div class="summary">
+      <b>Log summary.</b> Four years designing and implementing scalable, distributed systems across
+      industries: real-time data processing pipelines, pub/sub messaging for ad targeting and client
+      matching, production monitoring for industrial IoT. Full-stack on modern frontend frameworks,
+      cloud-native on AWS, Docker and Kubernetes, SQL and NoSQL design.
+    </div>
+    <div class="stamp">SURVEY<br>2022—2025<br>FIG. 01<br><br>GITHUB/R2-t<br>LINKEDIN/in/<br>santiago-torres-<br>621632216</div>
+  </div>
+
+  <div class="log">
+    <div class="depth"><span>2025</span><span>2024</span><span>2023</span><span>2022</span></div>
+
+    <div class="col interval">
+      <div class="colhead">Interval / role</div>
+      <div class="entry"><div class="t">Senior SW Engineer</div><div class="o">EPAM Systems</div><div class="d">MAR 2025 →</div></div>
+      <div class="entry"><div class="t">SW Engineer</div><div class="o">Dynata</div><div class="d">NOV 2022 — SEP 2025</div></div>
+      <div class="entry"><div class="t">Senior SW Engineer</div><div class="o">Mercado Libre</div><div class="d">OCT — NOV 2024</div></div>
+      <div class="entry"><div class="t">SW Engineer</div><div class="o">TechGenies</div><div class="d">JUL — OCT 2023</div></div>
+      <div class="entry"><div class="t">Full stack developer</div><div class="o">Casurid</div><div class="d">JUN — AUG 2022</div></div>
+    </div>
+
+    <div class="col trace">
+      <div class="colhead">Traces / load</div>
+      <div class="bar red"></div><div class="d" style="font-family:Cousine,monospace;font-size:10px;color:#6a6459">TIME-SERIES INGEST · COGNITE CDF</div>
+      <div class="wiggle"><svg viewBox="0 0 380 52" preserveAspectRatio="none"><polyline points="0,40 18,22 34,44 52,12 70,38 88,26 106,46 124,18 142,34 160,8 178,42 196,28 214,48 232,16 250,36 268,24 286,44 304,14 322,40 340,30 358,46 380,20" fill="none" stroke="#b4341f" stroke-width="1.4"/></svg></div>
+      <div class="bar"></div><div style="font-family:Cousine,monospace;font-size:10px;color:#6a6459">MATCHING ENGINE · MILLIONS OF PROFILES</div>
+      <div class="wiggle"><svg viewBox="0 0 380 52" preserveAspectRatio="none"><polyline points="0,48 20,44 40,30 60,46 80,10 100,42 120,36 140,48 160,6 180,40 200,28 220,46 240,14 260,44 280,32 300,48 320,20 340,38 360,44 380,26" fill="none" stroke="#1c1a17" stroke-width="1.4"/></svg></div>
+      <div class="bar hollow"></div><div style="font-family:Cousine,monospace;font-size:10px;color:#6a6459">BEHAVIOURAL SEGMENTATION · EVENT DRIVEN</div>
+      <div class="wiggle"><svg viewBox="0 0 380 52" preserveAspectRatio="none"><polyline points="0,46 24,46 28,14 40,14 44,46 96,46 100,22 112,22 116,46 172,46 176,10 188,10 192,46 250,46 254,26 266,26 270,46 330,46 334,16 346,16 350,46 380,46" fill="none" stroke="#1f4b6e" stroke-width="1.4"/></svg></div>
+      <div class="stack">PYTHON · RUST · TYPESCRIPT · AWS (DYNAMODB, SNS,<br>SQS, ECS, S3) · POSTGRESQL · RABBITMQ · OTEL · K8S</div>
+    </div>
+
+    <div class="col evidence">
+      <div class="colhead">Interpretation</div>
+      <p class="note">Architected services that ingest operational data from oil wells and turn it into
+        insights on interactive maps and dashboards; built the observability underneath them.</p>
+      <p class="annote">NOTE: Rust microservices orchestrated S3 + RabbitMQ + SNS/SQS ingestion for
+        market-research operations at multi-million-record scale.</p>
+      <p class="note">Payment-assessment tooling and an e-commerce monolith (React / Flutter / Django)
+        shipped for merchants starting out.</p>
+      <p class="annote">PUBLICATIONS: none logged yet. First entry planned: how a pub/sub matching
+        engine actually decides.</p>
+      <p class="note">Learning-management systems on Node, Vue and Moodle at Casurid, with premises
+        servers and databases migrated to AWS.</p>
+      <div style="margin-top:16px;border-top:1px solid var(--rule);padding-top:12px">
+        <div class="colhead" style="border:0;margin:0;padding:0">Measured range</div>
+        <div class="stack" style="font-size:11.5px">DURATION 2022 JUN → 2025 MAR · 5 EMPLOYERS · 3 INDUSTRIES<br>
+          LANGUAGES: Python, Rust, TypeScript, Dart/Flutter, PHP<br>
+          PLATFORMS: AWS, Kubernetes, Docker · DATA: PostgreSQL, DynamoDB, RabbitMQ</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="fcell"><b>Writing</b>0 entries logged</div>
+    <div class="fcell"><b>Projects</b>nothing public yet</div>
+    <div class="fcell"><b>Status</b>open to conversations</div>
+    <div class="open"><a href="mailto:contact@santiagotorres.me">Send mail</a></div>
+  </footer>
+</div>
+</body>
+</html>

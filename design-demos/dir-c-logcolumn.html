@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>C · Changelog Column</title>
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#fbfaf8;--ink:#1a1915;--muted:#6c6a63;--rule:#e3e1da;--accent:#2f5d50;--tag:#efeae0}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:Karla,sans-serif}
+  .page{width:1440px;height:900px;position:relative;overflow:hidden;display:flex}
+  .gutter{width:296px;border-right:1px solid var(--rule);padding:34px 30px 0;position:relative;background:#f6f5f1;display:flex;flex-direction:column}
+  .name{font-size:29px;font-weight:700;line-height:1.05;letter-spacing:-.01em}
+  .role{margin-top:9px;font-size:14px;color:var(--accent);font-weight:700;letter-spacing:.01em}
+  .loc{margin-top:6px;font-size:13px;color:var(--muted)}
+  .cta{display:block;margin-top:22px;background:var(--accent);color:#fff;text-decoration:none;
+    font-size:14.5px;font-weight:700;padding:12px 14px;text-align:center;letter-spacing:.01em}
+  .links{margin-top:16px;font-family:"JetBrains Mono",monospace;font-size:11.5px;line-height:2;color:var(--muted)}
+  .links a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--rule)}
+  .status{margin-top:26px;border-top:1px dashed var(--rule);padding-top:14px;font-size:12.5px;line-height:1.6;color:var(--muted)}
+  .status b{color:var(--ink)}
+  .railnote{margin-top:18px;font-family:"JetBrains Mono",monospace;font-size:10.5px;color:#9b988f;letter-spacing:.06em}
+
+  .stream{flex:1;padding:34px 46px 0;overflow:hidden}
+  .stream h2{margin:0;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .log{margin-top:14px}
+  .rel{display:flex;gap:18px;padding:15px 0 17px;border-bottom:1px solid var(--rule);position:relative}
+  .rel:first-child{border-top:2px solid var(--ink)}
+  .ver{width:126px;flex:none;font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--accent);
+    padding-top:3px;font-weight:600;letter-spacing:.02em}
+  .ver small{display:block;color:#9b988f;font-weight:400;margin-top:4px;font-size:10.5px}
+  .body{flex:1}
+  .body h3{margin:0;font-size:19px;font-weight:700;letter-spacing:-.005em}
+  .org{font-size:13px;color:var(--muted);margin-top:3px}
+  .body p{margin:8px 0 0;font-size:14.5px;line-height:1.55;max-width:760px;color:#39362f}
+  .tags{margin-top:9px;display:flex;gap:7px;flex-wrap:wrap}
+  .tag{background:var(--tag);font-family:"JetBrains Mono",monospace;font-size:10.5px;padding:3px 8px;color:#4c4a42}
+  .dot{position:absolute;left:-30px;top:20px;width:9px;height:9px;border-radius:50%;background:var(--accent)}
+  .dot.hollow{background:transparent;border:2px solid #b9b6ac}
+
+  .future{display:flex;gap:34px;margin-top:22px}
+  .card{flex:1;border:1px solid var(--rule);border-top:2px solid var(--ink);padding:16px 18px 18px;background:#fff}
+  .card h3{margin:0;font-size:15.5px;font-weight:700}
+  .card p{margin:8px 0 0;font-size:13.5px;line-height:1.55;color:var(--muted)}
+  .empty{margin-top:12px;border:1px dashed var(--rule);padding:12px 14px;font-family:"JetBrains Mono",monospace;font-size:11.5px;color:#8b8880;line-height:1.7}
+  .planned{margin-top:10px;font-size:13px;color:#39362f}
+  .planned b{font-weight:700}
+</style>
+</head>
+<body>
+<div class="page">
+  <aside class="gutter">
+    <div class="name">Santiago<br>Torres Aragon</div>
+    <div class="role">Entrepreneur · Senior Software Engineer</div>
+    <div class="loc">Bogotá, Colombia</div>
+    <a class="cta" href="mailto:contact@santiagotorres.me">contact@santiagotorres.me</a>
+    <div class="links">
+      <a href="https://github.com/R2-t">github.com/R2-t</a><br>
+      <a href="https://www.linkedin.com/in/santiago-torres-621632216/">linkedin.com/in/santiago-torres</a>
+    </div>
+    <div class="status"><b>Reading this page:</b> releases are past work, kept in one column.
+      The two sections below are real and currently empty — I publish rather than decorate.</div>
+    <div class="railnote">public/changelog · v5 · updated on push</div>
+  </aside>
+
+  <main class="stream">
+    <h2>Release log</h2>
+    <div class="log">
+      <article class="rel"><span class="dot"></span>
+        <div class="ver">v5.0<small>MAR 2025 →</small></div>
+        <div class="body">
+          <h3>Real-time well data, at scale</h3>
+          <div class="org">Senior Software Engineer · EPAM Systems</div>
+          <p>Architecting Python microservices that ingest and transform operational time-series from the
+            Cognite CDF platform for oil &amp; gas operations, delivering insights through interactive maps
+            and analytical dashboards. Built the tracing and metrics layer underneath.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Pub/Sub</span><span class="tag">Cognite CDF</span><span class="tag">OpenTelemetry</span><span class="tag">Microservices</span></div>
+        </div>
+      </article>
+      <article class="rel"><span class="dot"></span>
+        <div class="ver">v4.0<small>NOV 2022 — SEP 2025</small></div>
+        <div class="body">
+          <h3>Matching engine for ad campaigns and surveys</h3>
+          <div class="org">Software Engineer · Dynata</div>
+          <p>Rust microservices orchestrating multi-source ingestion from S3, RabbitMQ and SNS/SQS; an engine
+            aligning client profiles with targeted campaigns across millions of data points, plus a partner
+            portal with live completion metrics.</p>
+          <div class="tags"><span class="tag">Rust</span><span class="tag">AWS</span><span class="tag">PostgreSQL</span><span class="tag">RabbitMQ</span><span class="tag">Distributed Tracing</span></div>
+        </div>
+      </article>
+      <article class="rel"><span class="dot hollow"></span>
+        <div class="ver">v3.2<small>OCT — NOV 2024</small></div>
+        <div class="body">
+          <h3>Behavioural segmentation on live spend</h3>
+          <div class="org">Senior Software Engineer · Mercado Libre</div>
+          <p>Big-data pipelines categorising transactional sales to power ad performance; event-driven logic
+            triggering personalised marketing from real-time spending behaviour.</p>
+        </div>
+      </article>
+      <article class="rel"><span class="dot hollow"></span>
+        <div class="ver">v2.1<small>JUL — OCT 2023</small></div>
+        <div class="body">
+          <h3>E-commerce monolith and payment assessment tool</h3>
+          <div class="org">Software Engineer · TechGenies</div>
+          <p>React admin portal, Flutter mobile app, Django backend for merchants; a React/Laravel cost-projection tool.</p>
+        </div>
+      </article>
+      <article class="rel"><span class="dot hollow"></span>
+        <div class="ver">v1.0<small>JUN — AUG 2022</small></div>
+        <div class="body">
+          <h3>LMS on Node, Vue and Moodle; servers moved to AWS</h3>
+          <div class="org">Full stack developer · Casurid</div>
+        </div>
+      </article>
+    </div>
+
+    <div class="future">
+      <section class="card">
+        <h3>Writing</h3>
+        <p>Notes on systems I have run: ingestion, matching, observability.</p>
+        <div class="empty">no posts published yet<br>next planned: “how a pub/sub matching engine actually decides”</div>
+      </section>
+      <section class="card">
+        <h3>Projects</h3>
+        <p>Things I am building outside client work.</p>
+        <div class="empty">nothing public yet — first repo lands here when it is ready to show</div>
+        <div class="planned"><b>Currently:</b> shaping the next build. Ask me about it.</div>
+      </section>
+    </div>
+  </main>
+</div>
+</body>
+</html>

@@ -5,3 +5,9 @@ dist/
 .astro/
 .DS_Store
 **/.DS_Store
+
+# Impeccable: keep the durable artifacts, ignore local scratch
+.impeccable/*
+!.impeccable/surfaces/
+!.impeccable/config.json
+design-demos/*.png

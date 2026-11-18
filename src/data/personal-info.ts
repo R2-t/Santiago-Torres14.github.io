@@ -10,21 +10,36 @@ export const linkedin_url =
   "https://www.linkedin.com/in/santiago-torres-621632216/";
 
 export const description = `
-Senior Software Engineer with 4 years of experience designing and implementing scalable,
+Senior Software Engineer with 5 years of experience designing and implementing scalable,
 distributed systems across diverse industries. Proven expertise in real-time data processing
 pipelines, building pub/sub messaging architectures for ad targeting and client matching
 platforms, and developing production-grade monitoring systems for industrial IoT applications.
 Strong background in full-stack development with modern frontend frameworks, cloud-native
 architecture using AWS, Docker, and Kubernetes, and both SQL and NoSQL database design.
 Demonstrated ability to deliver high-impact solutions for data-intensive applications
-including survey platforms, ad campaign engines, and oil field monitoring systems.
+including last-mile logistics, survey platforms, ad campaign engines, and oil field monitoring systems.
 `;
 
 export const experience = [
   {
     title: "Senior Software Engineer",
+    company: "Veho",
+    date: "April 2026",
+    points: [
+      `Working in the last-mile team on clustering, launch orchestration, delivery, route planning, and the
+driver marketplace: the systems that decide which package leaves on which run with which driver, and
+which route it takes.`,
+      `Developing within a microservice architecture primarily in TypeScript, with GraphQL APIs served through
+AWS AppSync and services deployed on an EKS cluster, PostgreSQL as the data store and SQS between services.`,
+      `On-call rotation: New Relic alerts routed through PagerDuty, triaging production incidents under time
+pressure, from page through root cause to resolution.`,
+      `Key Technologies: TypeScript, GraphQL (AWS AppSync), EKS/Kubernetes, PostgreSQL, SQS, New Relic, PagerDuty, Microservices, Route Planning, On-call`,
+    ],
+  },
+  {
+    title: "Senior Software Engineer",
     company: "EPAM systems",
-    date: "March 2025",
+    date: "March 2025 - April 2026",
     points: [
       `Architecting and developing real-time data processing services using pub/sub architecture to ingest and
       transform operational data from Cognite CDF platform for oil & gas operations. Building Python-based

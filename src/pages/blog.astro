@@ -1,0 +1,92 @@
+---
+import NewLayout from "@layout/NewLayout.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("writing")).sort((a, b) =>
+  b.id.localeCompare(a.id),
+);
+---
+
+<NewLayout title="Writing — Santiago Torres Aragon">
+  <div class="elevation">
+    <section class="pane pane--lit masthead">
+      <h1 class="display">Writing</h1>
+      <p class="pane-body light">
+        Notes on systems I have actually run: ingestion, matching,
+        observability. No cadence, no scheduled content — a post appears when
+        there is something true to say.
+      </p>
+    </section>
+
+    <aside class="pane pane--seeded index">
+      <ul class="data list">
+        {posts.length === 0 ? (
+          <li class="empty">0 published · nothing scheduled</li>
+        ) : (
+          posts.map((post) => (
+            <li>
+              <a href={`/blog/${post.id}`}>{post.id}</a>
+            </li>
+          ))
+        )}
+      </ul>
+      <a class="cta" href="/">
+        Back to the elevation
+      </a>
+    </aside>
+
+    <section class="pane pane--frost promise">
+      <h2 class="display">First planned</h2>
+      <p class="pane-body">
+        How a pub/sub matching engine actually decides — the Dynata pipeline
+        that aligned client profiles with campaigns across millions of records,
+        drawn as it ran.
+      </p>
+      <p class="data status">Not written yet.</p>
+    </section>
+  </div>
+
+  <style>
+    .masthead {
+      grid-column: span 5;
+      gap: 16px;
+      text-decoration: none;
+    }
+    .index {
+      grid-column: span 7;
+      gap: 24px;
+      justify-content: flex-start;
+    }
+    .promise {
+      grid-column: span 12;
+      gap: 12px;
+    }
+    .display {
+      font-size: clamp(2.4rem, 5vw, 4.6rem);
+    }
+    .light {
+      color: #fff;
+    }
+    .list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+    .list a {
+      color: var(--ink);
+    }
+    .empty {
+      color: var(--ink-soft);
+      font-style: italic;
+      padding: 18px 0;
+      border-top: 2px solid var(--bar);
+      border-bottom: 2px solid var(--bar);
+    }
+    .status {
+      color: var(--oxblood);
+      font-weight: 500;
+    }
+  </style>
+</NewLayout>

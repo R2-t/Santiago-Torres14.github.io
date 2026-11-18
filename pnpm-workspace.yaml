@@ -1,0 +1,7 @@
+packages:
+  - "."
+
+# pnpm >=11 blocks dependency install scripts unless approved here.
+# sharp needs its postinstall to fetch platform binaries; nothing else in the tree builds.
+onlyBuiltDependencies:
+  - sharp
